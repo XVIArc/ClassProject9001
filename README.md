@@ -17,7 +17,7 @@ Anyway, the process, it was both torturing and interesting. Please try it out.
 
 2. Enter the map size (integer greater than 5).
 
-3. The program will randomly generate a map and print it out.
+3. The program will randomly generate a map and print it out step by step.
 
 ## Dependencies
 
