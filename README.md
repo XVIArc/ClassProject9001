@@ -28,3 +28,9 @@ Anyway, the process, it was both torturing and interesting. Please try it out.
 
 Author: Chong An
 Date: 22 May 2025
+
+
+Updates:
+Version 1.1     Date: 25 May 2025
+~Slightly changed some algorithms.
+~Added visual effects, so you guys can see how the function work in a funnier way!
