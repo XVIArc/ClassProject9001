@@ -1,3 +1,4 @@
+import os
 import Rooms
 ok = False
 while not ok:
@@ -9,6 +10,8 @@ while not ok:
             ok = True
             gamemap = Rooms.GenerateRooms(size)
             Rooms.roomgenerator2(gamemap, size)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(f'Generated {size}*{size} map:')
             Rooms.display_map(gamemap)
     except ValueError:
         print('Please enter a number.')

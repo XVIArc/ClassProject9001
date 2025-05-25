@@ -1,5 +1,7 @@
 import math
 import random
+import time
+import os
 
 class Room:
     def __init__(self,x:int,y:int,difficulty='#Wall'):      #The basic is every room was a wall
@@ -146,8 +148,8 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
     GeneratorSeed.shuffle(direction)                   #Shuffle.
     mapping = dict(zip(direction,type))         #Dictionary-lize this
     path_info = {
-        'Boss': math.ceil(n / 2) + 1,
-        'Treasure': random.randint(1, math.floor(n / 2)),
+        'Boss': math.ceil(n/2) + math.floor(n/4),
+        'Treasure': random.randint(math.ceil(n/4), math.floor(n / 2)),
         '$Shop': random.randint(math.ceil(n / 2) // 2, math.ceil(n / 2)),
         'Challenge': random.randint(math.ceil(n / 2) // 2, math.ceil(n / 2)),
     }
@@ -168,7 +170,7 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
 
 
     #2 Making rooms. I need Startroom, Direction, Roomtype and Pathlength. Require N.
-    for dir in direction:           #Instance:North boss
+    for dir in direction:           #Instance:North boss This is where generation begins.
         type = mapping[dir]
         length = path_info[type]
         cango=['north','east','south','west']
@@ -181,10 +183,9 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
         step = 1
         Tries = 30
 
-        print(f'Generating Path:{type}, Direction:{dir0} -> {length} Steps.')       #TEST.Finally this is changed to a interesting message.
         while step<=length:      #Any kind of steps.
             if Tries == 0:
-                print('I got a mistake when generating the map. Would you mind starting over?')
+                print('I got a mistake when generating the map. Would you mind starting over?')     #Just a trick.
                 break
             if step!=1:
                 GeneratorSeed.shuffle(directions)
@@ -193,7 +194,7 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
 
 
             newx,newy = cur_x + dx, cur_y + dy
-            if not cross_lock(newx,newy,n) and valid_dir(newx,newy,n) and map[newx][newy] is None: #Available
+            if not cross_lock(newx,newy,n) and valid_dir(newx,newy,n) and map[newx][newy] is None: #Available place. Add new room in here.
                 if step != length:
                     map[newx][newy] = Room(newx,newy,' Normal')
 
@@ -201,6 +202,15 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
                     map[newx][newy] = Room(newx,newy,type)
                 cur_x,cur_y = newx,newy
                 step += 1
+
+                '''
+                Visual effect added in 2025/05/25 just for fun.
+                '''
+                time.sleep(0.25)  # Graphics effect. 2025/05/25
+                os.system('cls' if os.name == 'nt' else 'clear')  # Clear console screen
+                print(
+                    f'Generating Path:{type}, Direction:{dir0} -> {length} Steps.')  # TEST. At last, this test is changed to a interesting message.
+                display_map(map)
             else:
                 Tries-=1
 
@@ -217,7 +227,8 @@ def roomgenerator2(map:list[list[Room]],n:int):             #It is a square map
 
 
 if __name__ == '__main__':          #TESTCODES
-    gamemap = GenerateRooms(15)
-    roomgenerator2(gamemap,15)
+    gamemap = GenerateRooms(5)
+    roomgenerator2(gamemap,5)
+    os.system('cls' if os.name == 'nt' else 'clear')
     # Roomgenerator(gamemap,5)
     display_map(gamemap)
