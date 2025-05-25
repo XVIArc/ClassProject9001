@@ -30,7 +30,7 @@ Author: Chong An
 Date: 22 May 2025
 
 
-Updates:
-Version 1.1     Date: 25 May 2025
-~Slightly changed some algorithms.
+Updates:<br>
+Version 1.1     Date: 25 May 2025<br>
+~Slightly changed some algorithms.<br>
 ~Added visual effects, so you guys can see how the function work in a funnier way!
