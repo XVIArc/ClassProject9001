@@ -30,7 +30,11 @@ Author: Chong An
 Date: 22 May 2025
 
 
-Updates:<br>
-Version 1.1     Date: 25 May 2025<br>
-~Slightly changed some algorithms.<br>
-~Added visual effects, so you guys can see how the function work in a funnier way!
+## Updates:
+
+
+Version 1.1     Date: 25 May 2025<br><br>
+-Slightly changed some algorithms.<br>
+-Added visual effects, so you guys can see how the function work in a funnier way!<br><br>
+Disclaimer: I was busy playing with my newest SD environment for this weekend, so it took me very long time to set up the environment, leaving not very much time to try some new in this homework.![167F1E1B](https://github.com/user-attachments/assets/e0fda2c1-b23a-4665-b101-818a2a48af75)
+
